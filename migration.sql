@@ -1,8 +1,8 @@
 USE radlister_db;
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS ads;
-DROP TABLE IF EXISTS category;
 DROP TABLE IF EXISTS ad_category;
+DROP TABLE IF EXISTS category;
+DROP TABLE IF EXISTS ads;
+DROP TABLE IF EXISTS users;
 CREATE TABLE  users (
                        id INT UNSIGNED NOT NULL AUTO_INCREMENT,
                        username VARCHAR(240) NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE ads (
                      id INT UNSIGNED NOT NULL AUTO_INCREMENT,
                      user_id INT UNSIGNED NOT NULL,
                      title VARCHAR(240) NOT NULL,
-                     price float,
+                     price INT UNSIGNED NOT NULL,
                      description TEXT NOT NULL,
                      PRIMARY KEY (id),
                      FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
@@ -34,5 +34,7 @@ Create Table ad_category (
                              PRIMARY KEY (ad_id, cat_id)
 );
 show tables;
+
+
 # drop table ad_category;
 # ALTER TABLE ad_category ADD FOREIGN KEY (ad_id) REFERENCES ads(id);

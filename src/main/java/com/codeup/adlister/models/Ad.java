@@ -4,7 +4,7 @@ public class Ad {
     private long id;
     private long userId;
     private String title;
-    private Float price;
+    private Integer price;
     private String description;
 
     public Ad(long id, long userId, String title, String description) {
@@ -14,10 +14,18 @@ public class Ad {
         this.description = description;
     }
 
-    public Ad(long userId, String title, Float price, String description) {
+    public Ad(long userId, String title, Integer price, String description) {
         this.userId = userId;
         this.title = title;
-        this.price = price;
+        this.price = price * 100;
+        this.description = description;
+    }
+
+    public Ad(long id, long userId, String title, Integer price, String description) {
+        this.id = id;
+        this.userId = userId;
+        this.title = title;
+        this.price = price * 100;
         this.description = description;
     }
 
@@ -50,11 +58,11 @@ public class Ad {
     public void setTitle(String title) {
         this.title = title;
     }
-    public Float getprice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setprice(Float price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
