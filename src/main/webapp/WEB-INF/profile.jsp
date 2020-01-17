@@ -10,7 +10,9 @@
 
     <div class="container">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
+    <form action="/logout">
+        <button type="submit">Logout</button>
+    </form>
     </div>
-
 </body>
 </html>
