@@ -1,7 +1,6 @@
 package com.codeup.adlister.models;
 
 
-import java.math.BigDecimal;
 
 public class Ad {
     private long id;
