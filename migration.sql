@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS ad_category;
 DROP TABLE IF EXISTS category;
 DROP TABLE IF EXISTS ads;
 DROP TABLE IF EXISTS users;
+<<<<<<< HEAD
 CREATE TABLE  users (
                        id INT UNSIGNED NOT NULL AUTO_INCREMENT,
                        username VARCHAR(240) NOT NULL,
@@ -12,6 +13,8 @@ CREATE TABLE  users (
                        PRIMARY KEY (id),
                        UNIQUE (username),
                        UNIQUE (email)
+=======
+>>>>>>> a5d72f12da1f5db058b9b219383218309abab1eb
 
 );
 
