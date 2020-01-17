@@ -1,7 +1,9 @@
-USE adlister_db;
+USE radlister_db;
 
-DROP TABLE IF EXISTS ads;
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS ads;
+DROP TABLE IF EXISTS category;
+DROP TABLE IF EXISTS ad_category;
 
 CREATE TABLE users (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -17,20 +19,29 @@ CREATE TABLE ads (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     user_id INT UNSIGNED NOT NULL,
     title VARCHAR(240) NOT NULL,
-    price float,
+    price int,
     description TEXT NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
  CREATE TABLE category (
-     id INT,
-     description Varchar(240)
-);
+     id INT UNSIGNED NOT NULL,
+     description Varchar(240),
+     PRIMARY KEY (id)
+ );
 
  Create Table ad_category (
-     ad_id Int NOT NULL,
-     cat_id Int NOT NULL,
-     Foreign Key (ad_id) REFERENCES ads(id) ON DELETE CASCADE ,
-     foreign key (cat_id) references category(id) ON DELETE CASCADE
+     ad_id Int UNSIGNED NOT NULL,
+     cat_id Int UNSIGNED NOT NULL,
+     FOREIGN KEY (ad_id) REFERENCES ads(id) ON DELETE CASCADE,
+     FOREIGN KEY (cat_id) REFERENCES category(id) ON DELETE CASCADE,
+    PRIMARY KEY (ad_id, cat_id)
  );
+
+show tables;
+
+# drop table ad_category;
+
+
+# ALTER TABLE ad_category ADD FOREIGN KEY (ad_id) REFERENCES ads(id);
