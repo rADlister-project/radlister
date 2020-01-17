@@ -7,14 +7,22 @@
             <a class="navbar-brand" href="/ads">Adlister</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="/login">profile</a></li>
 
             <c:if test="${sessionScope.user != null}">
+                <li>
+                    <a href="/login">profile</a>
+                </li>
+                <li>
+                    <a href="/ads/create">List Your Ad!</a>
+                </li>
                 <li>
                     <a href="/logout">logout</a>
                 </li>
             </c:if>
             <c:if test="${sessionScope.user == null}">
+                <li>
+                    <a href="/register">Register</a>
+                </li>
                 <li>
                     <a href="/login">login</a>
                 </li>
