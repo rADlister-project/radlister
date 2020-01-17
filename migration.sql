@@ -1,7 +1,9 @@
-USE adlister_db;
+USE radlister_db;
 
 DROP TABLE IF EXISTS ads;
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS category;
+DROP TABLE IF EXISTS ad_category;
 
 CREATE TABLE users (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -20,3 +22,6 @@ CREATE TABLE ads (
     FOREIGN KEY (user_id) REFERENCES users(id)
         ON DELETE CASCADE
 );
+
+use radlister_db;
+show tables;
