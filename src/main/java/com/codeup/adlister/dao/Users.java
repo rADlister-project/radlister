@@ -9,6 +9,5 @@ public interface Users {
     Long insert(User user);
 
     User getUserById(long id);
-
     Long saveUser(User user);
 }

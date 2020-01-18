@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/EditUser")
+
+@WebServlet(name="EditUserServlet", urlPatterns = "/EditUser")
 public class EditUserServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -30,7 +31,7 @@ public class EditUserServlet extends HttpServlet {
         String userName = request.getParameter("editUserName");
         String userEmail = request.getParameter("editEmail");
         String password = request.getParameter("editUserName");
-        User user = new User(id, userName,userEmail,password); //?
+        User user = new User(id, userName,userEmail,password);
         usersDao.insert(user);
         response.sendRedirect("/users"); //? check path
 
