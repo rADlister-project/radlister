@@ -51,6 +51,23 @@ public class MySQLUsersDao implements Users {
         }
     }
 
+    @Override
+    public User getUserById(long id) {
+        return users.get((int) id - 1);
+    }
+
+    @Override
+    public Long saveUser(User user) {
+        if (user.getId() == 0) {
+            user.setId(users.size() + 1);
+            users.add(user);
+        } else {
+            users.set((int) user.getId() -1, user);
+        }
+
+        return user.getId();
+    }
+
     private User extractUser(ResultSet rs) throws SQLException {
         if (! rs.next()) {
             return null;

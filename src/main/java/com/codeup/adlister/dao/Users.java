@@ -10,5 +10,5 @@ public interface Users {
 
     User getUserById(long id);
 
-    void saveUser(User user);
+    Long saveUser(User user);
 }
