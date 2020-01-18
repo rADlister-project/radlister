@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("EditUser")
+@WebServlet("/EditUser")
 public class EditUserServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         long id = Long.parseLong(request.getParameter("id"));
         request.setAttribute("id",id);
         Users userDao = DaoFactory.getUsersDao();
-        User updateUser = userDao.getUserById(id);
+        User editUser = userDao.getUserById(id);
         request.setAttribute("EditUser",editUser);
         request.getRequestDispatcher("EditUser.jsp").forward(request,response);
 
@@ -31,7 +31,7 @@ public class EditUserServlet extends HttpServlet {
         String userEmail = request.getParameter("editEmail");
         String password = request.getParameter("editUserName");
         User user = new User(id, userName,userEmail,password); //?
-        usersDao.insert(user); //?
+        usersDao.insert(user);
         response.sendRedirect("/users"); //? check path
 
 
