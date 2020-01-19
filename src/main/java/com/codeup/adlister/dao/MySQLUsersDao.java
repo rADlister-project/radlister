@@ -42,6 +42,8 @@ public class MySQLUsersDao implements Users {
             stmt.setString(1, user.getUsername());
             stmt.setString(2, user.getEmail());
             stmt.setString(3, user.getPassword());
+
+
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
@@ -53,20 +55,83 @@ public class MySQLUsersDao implements Users {
 
     @Override
     public User getUserById(long id) {
-        return users.get((int) id - 1);
-    }
-
-    @Override
-    public Long saveUser(User user) {
-        if (user.getId() == 0) {
-            user.setId(users.size() + 1);
-            users.add(user);
-        } else {
-            users.set((int) user.getId() -1, user);
+        String query = "SELECT * FROM users WHERE id = ? LIMIT 1";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setLong(1, id);
+            return extractUser(stmt.executeQuery());
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding a user by id", e);
         }
 
-        return user.getId();
     }
+
+
+    public User editUser(long id, String username, String email, String password) {
+        String query = "SELECT * FROM users WHERE id = ? LIMIT 1";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1,id);
+            User user = extractUser(stmt.executeQuery());
+            user.setUsername(username);
+            user.setEmail(email);
+            user.setPassword(password);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    @Override
+    public User updateUser(User user) {
+
+        try {
+            String query = "UPDATE users SET username = ?, email = ?, password = ? WHERE id = ?";
+            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.setString(1, user.getUsername());
+            stmt.setString(2, user.getEmail());
+            stmt.setString(3, user.getPassword());
+            stmt.setLong(4, user.getId());
+            System.out.println("test");
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("exception");
+        }
+
+        return null;
+    }
+//    @Override
+//    public Long updateUser(Long id) {
+//        String query = "UPDATE users SET username = ?, email = ?, password = ? WHERE id = ?";
+//        try {
+//            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+//            User user = getUserById(id)
+//            stmt.setString(1, user.getUsername());
+//            stmt.setString(2, user.getEmail());
+//            stmt.setString(3, user.getPassword());
+//            stmt.setLong(4, id);
+//
+//
+//            stmt.executeUpdate();
+//            ResultSet rs = stmt.getGeneratedKeys();
+//            rs.next();
+//            return rs.getLong(1);
+//        } catch (SQLException e) {
+//            throw new RuntimeException("Error creating new user", e);
+//        }
+//    }
+
+//    @Override
+//    public Long saveUser(User user) {
+//        if (user.getId() == 0) {
+//            user.setId(users.size() + 1);
+//            users.add(user);
+//        } else {
+//            users.set((int) user.getId() -1, user);
+//        }
+
+//        return user.getId();
+//    }
 
     private User extractUser(ResultSet rs) throws SQLException {
         if (! rs.next()) {
