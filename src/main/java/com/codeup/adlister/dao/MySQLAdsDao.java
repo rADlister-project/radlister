@@ -14,9 +14,9 @@ public class MySQLAdsDao implements Ads {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
-                config.getUrl(),
-                config.getUsername(),
-                config.getPassword()
+                    config.getUrl(),
+                    config.getUsername(),
+                    config.getPassword()
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);
@@ -34,6 +34,30 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error retrieving all ads.", e);
         }
     }
+
+    @Override
+    public List<Ad> getRandomAds() {
+        List<Ad> randomAds = new ArrayList<>();
+        try {
+            Statement statement = connection.createStatement();
+            String query = "SELECT * from ads order by RAND() LIMIT 3";
+            ResultSet rs = statement.executeQuery(query);
+            while (rs.next()) {
+                randomAds.add(
+                        new Ad(rs.getLong("id"),
+                                rs.getLong("user_id"),
+                                rs.getString("title"),
+                                rs.getInt("price"),
+                                rs.getString("description")
+                        )
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return randomAds;
+    }
+
 
     @Override
     public Long insert(Ad ad) {
@@ -55,9 +79,9 @@ public class MySQLAdsDao implements Ads {
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
-            rs.getLong("id"),
-            rs.getLong("user_id"),
-            rs.getString("title"),
+                rs.getLong("id"),
+                rs.getLong("user_id"),
+                rs.getString("title"),
                 rs.getInt("price"),
                 rs.getString("description")
         );
@@ -70,4 +94,28 @@ public class MySQLAdsDao implements Ads {
         }
         return ads;
     }
+
+    @Override
+    public List<Ad> allFromUser(Long userID) {
+        List<Ad> ads = new ArrayList<>();
+        try {
+            Statement statement = connection.createStatement();
+            String query = "select id, user_id, title, price, description from ads where user_id = " + userID;
+            ResultSet rs = statement.executeQuery(query);
+            while (rs.next()) {
+                ads.add(
+                        new Ad(rs.getLong("id"),
+                                rs.getLong("user_id"),
+                                rs.getString("title"),
+                                rs.getInt("price"),
+                                rs.getString("description")
+                        )
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return ads;
+    }
+
 }

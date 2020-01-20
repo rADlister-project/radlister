@@ -18,6 +18,7 @@ public class Ad {
     }
 
     public Ad(long userId, String title, int price, String description) {
+
         this.userId = userId;
         this.title = title;
         this.price = price;
@@ -40,7 +41,7 @@ public class Ad {
         this.userId = userId;
     }
 
-    public int getPrice() { return price; }
+
 
     public void setPrice(int price) { this.price = price; }
 
@@ -50,6 +51,13 @@ public class Ad {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
     }
 
     public String getDescription() {
