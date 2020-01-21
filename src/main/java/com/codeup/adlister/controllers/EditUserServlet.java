@@ -75,14 +75,6 @@ public class EditUserServlet extends HttpServlet {
 
 //        User user = new User(id, userName,userEmail,password);
 //        usersDao.insert(user);
-
-
-
-
-
-
-
-
 //getUserDao
 
 //users interface getUserById

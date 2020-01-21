@@ -16,4 +16,6 @@ public interface Ads {
 
     //    gets 3 random ads
     public List<Ad> getRandomAds();
+
 }
+
