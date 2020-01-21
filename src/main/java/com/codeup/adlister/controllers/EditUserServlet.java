@@ -18,7 +18,7 @@ import java.sql.SQLException;
 public class EditUserServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        request.getRequestDispatcher("/WEB-INF/EditUser.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/editUser.jsp").forward(request, response);
 
     }
 

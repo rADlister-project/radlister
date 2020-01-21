@@ -21,6 +21,9 @@ public class DeleteAdConfirmServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Long Id = Long.parseLong(request.getParameter("adId"));
         request.getSession().setAttribute("adId", Id);
+        //Working on creating ad persistency
+        //Ad ad = (DaoFactory.getAdsDao().getAdById(Id));
+        //request.getSession().setAttribute("ad", ad);
         System.out.println(Id);
         request.getRequestDispatcher("/WEB-INF/deletead.jsp").forward(request, response);
         System.out.println("post test");

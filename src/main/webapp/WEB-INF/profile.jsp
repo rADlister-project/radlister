@@ -33,10 +33,11 @@
 
                 <%-- is /profile the best place for this to go?--%>
                 <form action="/profile" method="post">
-                    <button type="submit">Update this ad</button>
+                    <button type="submit">Edit this ad</button>
                 </form>
                 <form action="/deleteAdConfirm" method="post">
                     <input name="adId" value="${ad.id}"type="hidden">
+                    <input name="ad" value="${ad}"type="hidden">
                     <button class="btn-danger" type="submit">Delete this ad</button>
                 </form>
             </div>

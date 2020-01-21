@@ -88,6 +88,23 @@ public class MySQLAdsDao implements Ads {
         );
     }
 
+    @Override
+    public Ad editAd(Ad ad) {
+        try {
+            String query = "UPDATE ads SET title = ?, price = ?, description = ? WHERE id = ?";
+            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.setString(1, ads.getTitle());
+            stmt.setLong(2, ads.getPrice());
+            stmt.setString(3, ads.getDescription());
+            stmt.setLong(4, ads.getId());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
     private List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {
         List<Ad> ads = new ArrayList<>();
         while (rs.next()) {
@@ -136,7 +153,7 @@ public class MySQLAdsDao implements Ads {
     }
 
 
-@Override
+    @Override
     public Ad getAdById(long id) {
         String query = "SELECT * FROM ads WHERE id = ? LIMIT 1";
         try {
@@ -144,10 +161,11 @@ public class MySQLAdsDao implements Ads {
             stmt.setLong(1, id);
             return extractAd(stmt.executeQuery());
         } catch (SQLException e) {
-            throw new RuntimeException("Error finding a user by id", e);
+            throw new RuntimeException("Error finding ad by id", e);
         }
 
     }
+
 
 
     }

@@ -23,5 +23,6 @@ public interface Ads {
     public Ad getAdById(long id);
     public Ad extractAd(ResultSet rs) throws SQLException;
 
-
-    }
+    // editAd
+    public Ad editAd(Ad adToUpdate);
+}

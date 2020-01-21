@@ -15,7 +15,7 @@
 <body>
 <jsp:include page="partials/navbar.jsp" />
 <div class="container">
-    <h1>Delete Ad${ad.title}?</h1>
+    <h1>Delete Ad ${ad.title}?</h1>
     <form action="/deletead" method="post">
         <input type="submit" onclick="showConfirmDeleteAd()" class="btn btn-danger btn-block">
         <input type="hidden" name="adId" value="${adId}">
