@@ -34,7 +34,11 @@
                 <%-- is /profile the best place for this to go?--%>
                 <form action="/profile" method="post">
                     <button type="submit">Edit this ad</button>
-                </form>
+                <input name="adTitle" value="${ad.title}"type="hidden">
+                <input name="adPrice" value="${ad.price}"type="hidden">
+                <input name="adDescription" value="${ad.description}"type="hidden">
+
+            </form>
                 <form action="/deleteAdConfirm" method="post">
                     <input name="adId" value="${ad.id}"type="hidden">
                     <input name="ad" value="${ad}"type="hidden">

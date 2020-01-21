@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<form action="/AddContact" method="post">
+<form action="/addcontact" method="post">
 
     <label name="firstName">First Name:</label>
     <input type="text" name="firstName" id="firstName">
