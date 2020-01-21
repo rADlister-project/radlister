@@ -9,13 +9,16 @@
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
-    <div class="container">
+    <div class="container d-flex">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
     <form action="/logout">
         <button type="submit">Logout</button>
     </form>
         <form action="/edituser">
             <button type="submit">Edit Profile</button>
+        </form>
+        <form action="/confirmDelete" method="post">
+            <button type="submit">Delete Profile</button>
         </form>
     </div>
     <div class="container">
@@ -26,9 +29,15 @@
                 <p class="card-text">${ad.price}</p>
                 <p class="card-text">${ad.description}</p>
                 <p class="card-text">
+                <input name="id" value="${ad.id}"type="hidden">
+
+                <%-- is /profile the best place for this to go?--%>
                 <form action="/profile" method="post">
-                    <input name="id" value="${ad.id}"type="hidden">
                     <button type="submit">Update this ad</button>
+                </form>
+                <form action="/deleteAdConfirm" method="post">
+                    <input name="adId" value="${ad.id}"type="hidden">
+                    <button class="btn-danger" type="submit">Delete this ad</button>
                 </form>
             </div>
         </c:forEach>
