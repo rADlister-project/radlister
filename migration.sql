@@ -42,4 +42,5 @@ Create Table ad_category (
 
 show tables;
 
+DELETE FROM users where id  = 5;
 

@@ -7,8 +7,13 @@ import java.util.List;
 public interface Ads {
     // get a list of all the ads
     List<Ad> all();
+
     // insert a new ad and return the new ad's id
     Long insert(Ad ad);
+
     //    get a list of ads from a particular user
     List<Ad> allFromUser(Long userID);
+
+    //    gets 3 random ads
+    public List<Ad> getRandomAds();
 }
