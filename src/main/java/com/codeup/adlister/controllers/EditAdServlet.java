@@ -20,21 +20,21 @@ public class EditAdServlet extends HttpServlet {
         String adTitle = request.getParameter("editAdTitle");
         int adPrice = Integer.parseInt(request.getParameter("editAdPrice"));
         String adDescription = request.getParameter("editAdDescription");
-
         long Id = Long.parseLong(request.getParameter("adId"));
         User user = (User) request.getSession().getAttribute("user");
         long userID = user.getId();
-        Ad adToEdit = new Ad(Id, userID, adTitle, adPrice, adDescription);
+        Ad adToEdit = new Ad(0, 0, "", 0, "");
         System.out.println("post success");
-//        adToEdit.setTitle(adTitle);
-//        adToEdit.setPrice(adPrice);
-//        adToEdit.setDescription(adDescription);
-//        adToEdit.setId(Id);
+        adToEdit.setTitle(adTitle);
+        adToEdit.setPrice(adPrice);
+        adToEdit.setDescription(adDescription);
+        adToEdit.setId(Id);
+        adToEdit.setUserId(userID);
         DaoFactory.getAdsDao().editAd(adToEdit);
         response.sendRedirect("/profile");
 
 
-        }
+    }
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -53,5 +53,3 @@ public class EditAdServlet extends HttpServlet {
 
     }
 }
-
-
