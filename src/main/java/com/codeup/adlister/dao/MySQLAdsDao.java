@@ -89,26 +89,13 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
+
     public Ad editAd(Ad adToUpdate) {
         return null;
     }
 
-//    @Override
-//    public Ad editAd(Ad ad) {
-//        try {
-//            String query = "UPDATE ads SET title = ?, price = ?, description = ? WHERE id = ?";
-//            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-//            stmt.setString(1, ads.getTitle());
-//            stmt.setLong(2, ads.getPrice());
-//            stmt.setString(3, ads.getDescription());
-//            stmt.setLong(4, ads.getId());
-//            stmt.executeUpdate();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//
-//        return null;
-//    }
+
+
 
     private List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {
         List<Ad> ads = new ArrayList<>();
@@ -177,12 +164,27 @@ public class MySQLAdsDao implements Ads {
             String query = "SELECT * FROM ads WHERE title LIKE ? OR description LIKE ?";
             String queryWildCard = userInput + "%";
 
+
             stmt = connection.prepareStatement(query);
             stmt.setString(1, queryWildCard);
             stmt.setString(2, queryWildCard);
 
+    @Override
+    public Ad singleAd(Long id) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM ads WHERE id = ?");
+            stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
-            return createAdsFromResults(rs);
+            List<Ad> ads = createAdsFromResults(rs);
+            return ads.get(0);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving this ad.", e);
+        }
+
+    }
+          ResultSet rs = stmt.executeQuery();
+          return createAdsFromResults(rs);
 
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving the ads", e);
