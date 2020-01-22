@@ -27,22 +27,15 @@ public class LoginServlet extends HttpServlet {
         User user = DaoFactory.getUsersDao().findByUsername(username);
 
         if (user == null) {
-            System.out.println("Hello");
             response.sendRedirect("/login");
             return;
         }
 
         boolean validAttempt = Password.check(password, user.getPassword());
-        System.out.println(password);
-        System.out.println(user.getPassword());
-
-
         if (validAttempt) {
-            System.out.println("hello");
             request.getSession().setAttribute("user", user);
             response.sendRedirect("/profile");
         } else {
-            System.out.println("Good bye");
             response.sendRedirect("/login");
         }
 

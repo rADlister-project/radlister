@@ -1,7 +1,10 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.User;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public interface Ads {
@@ -17,5 +20,11 @@ public interface Ads {
     //    gets 3 random ads
     public List<Ad> getRandomAds();
 
+    Long deleteAd(Long Id);
+    public Ad getAdById(long id);
+    public Ad extractAd(ResultSet rs) throws SQLException;
+
+    // editAd
+    public Ad editAd(Ad adToUpdate);
 }
 

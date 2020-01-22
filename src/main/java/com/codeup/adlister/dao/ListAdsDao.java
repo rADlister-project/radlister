@@ -2,6 +2,8 @@ package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +39,26 @@ public class ListAdsDao implements Ads {
         return null;
     }
 
+    @Override
+    public Long deleteAd(Long id) {
+        return null;
+    }
+
+    @Override
+    public Ad getAdById(long id) {
+        return null;
+    }
+
+    @Override
+    public Ad extractAd(ResultSet rs) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public Ad editAd(Ad adToUpdate) {
+        return null;
+    }
+
 
     private List<Ad> generateAds() {
         List<Ad> ads = new ArrayList<>();
@@ -66,4 +88,5 @@ public class ListAdsDao implements Ads {
 //        ));
         return ads;
     }
+
 }

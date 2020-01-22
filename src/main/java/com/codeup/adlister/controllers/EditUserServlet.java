@@ -18,15 +18,7 @@ import java.sql.SQLException;
 public class EditUserServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-//        User user = (User) request.getSession().getAttribute("user");
-
-//
-//        long id = request.getParameter(user.getId());
-//        request.setAttribute("id",id);
-//        Users userDao = DaoFactory.getUsersDao();
-//        User editUser = userDao.getUserById(id);
-//        request.setAttribute("EditUser",editUser);
-        request.getRequestDispatcher("/WEB-INF/EditUser.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/edituser.jsp").forward(request, response);
 
     }
 
@@ -39,25 +31,11 @@ public class EditUserServlet extends HttpServlet {
 
         if (password.equalsIgnoreCase(confirmPassword)) {
             try {
-//        Users usersDao = DaoFactory.getUsersDao();
-
-//        long id = Long.parseLong(request.getParameter("id"));
-
-
                 User userToUpdate = (User) request.getSession().getAttribute("user");
-//        long id = userToUpdate.getId();
-                System.out.println(userToUpdate.getId());
-                System.out.println(userToUpdate.getUsername());
-
-
                 userToUpdate.setUsername(userName);
                 userToUpdate.setEmail(userEmail);
                 userToUpdate.setPassword(password);
                 userToUpdate.setId(userId);
-
-                System.out.println(userToUpdate.getId());
-                System.out.println(userToUpdate.getUsername());
-
                 DaoFactory.getUsersDao().updateUser(userToUpdate);
                 response.sendRedirect("/profile");
             } catch (SQLException e) {
@@ -70,12 +48,3 @@ public class EditUserServlet extends HttpServlet {
         }
     }
 }
-//        userToUpdate.setUsername();
-//    DaoFactory.getUsersDao().editUser();
-
-//        User user = new User(id, userName,userEmail,password);
-//        usersDao.insert(user);
-//getUserDao
-
-//users interface getUserById
-//password hash

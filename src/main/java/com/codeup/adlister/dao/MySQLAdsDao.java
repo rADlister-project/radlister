@@ -1,6 +1,7 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
@@ -77,7 +78,7 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-    private Ad extractAd(ResultSet rs) throws SQLException {
+    public Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
                 rs.getLong("id"),
                 rs.getLong("user_id"),
@@ -85,6 +86,23 @@ public class MySQLAdsDao implements Ads {
                 rs.getInt("price"),
                 rs.getString("description")
         );
+    }
+
+    @Override
+    public Ad editAd(Ad ad) {
+        try {
+            String query = "UPDATE ads SET title = ?, price = ?, description = ? WHERE id = ?";
+            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.setString(1, ads.getTitle());
+            stmt.setLong(2, ads.getPrice());
+            stmt.setString(3, ads.getDescription());
+            stmt.setLong(4, ads.getId());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
     private List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {
@@ -118,4 +136,36 @@ public class MySQLAdsDao implements Ads {
         return ads;
     }
 
-}
+    @Override
+    public Long deleteAd(Long Id){
+        try {
+            String query = "DELETE FROM ads where id  = ?";
+            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1, Id);
+            System.out.println("test delete");
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("exception delete");
+        }
+
+        return null;
+    }
+
+
+    @Override
+    public Ad getAdById(long id) {
+        String query = "SELECT * FROM ads WHERE id = ? LIMIT 1";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setLong(1, id);
+            return extractAd(stmt.executeQuery());
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding ad by id", e);
+        }
+
+    }
+
+
+
+    }
