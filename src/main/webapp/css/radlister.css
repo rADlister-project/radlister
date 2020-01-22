@@ -9,9 +9,13 @@ body {
   /*background-color: #01C4CA;*/
 }
 
+.center {
+  text-align: center;
+}
 .navbar {
   background-color: #FDFF02;
   margin-bottom: 0;
+  border-bottom: 5px solid deeppink;
 }
 
 .jumbotron {
@@ -49,15 +53,25 @@ body {
 .grey {
   color: #5d5d5d!important;
 }
+ .green {
+   color: #14ff80!important;
+ }
+
+ .pink {
+   color: #ff1493!important;
+ }
 
 .card{
   /*display: flex;*/
   /*box-sizing: border-box;*/
-  width: 25%;
-  border: solid #5B6DCD 3px;
-  padding: 3px;
+  width: 35%;
+  /*border: solid #5B6DCD 3px;*/
+  padding: 0;
   /*justify-content: center;*/
   margin: 5px;
+  text-align: center;
+  border: 8px solid deeppink;
+  border-radius: 8px;
 }
 
 #searchForm {
@@ -66,3 +80,20 @@ body {
 }
 
 
+.main-container{
+  max-width: 1100px;
+  margin: 0 0 0 10%;
+}
+
+.card-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card-title {
+  background-color: deeppink;
+  margin: 0 !important;
+}
