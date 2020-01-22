@@ -14,13 +14,15 @@
     <h1>Here Are all the Rad ads!</h1>
 
     <c:forEach var="ad" items="${ads}">
-        <div class="border border-primary col-md-6">
-            <h2>${ad.title}</h2>
-            <p>
+    <div class="card" style="width: 18rem; background-color: deeppink">
+        <div class="card-body">
+            <h2 class="card-title">${ad.title}</h2>
+            <p class="card-text">
                 <fmt:formatNumber value="${ad.price}" type="currency" /></p>
             </p>
-            <p>${ad.description}</p>
+            <p class="card-text">${ad.description}</p>
         </div>
+    </div>
     </c:forEach>
 </div>
 

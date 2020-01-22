@@ -26,8 +26,9 @@
 <div class="container">
     <h1 class="grey rock">Check out some of our Rad Ads!</h1>
     <c:forEach var="ad" items="${ads}">
+    <div class="card" style="width: 18rem; background-color: deeppink">
         <div class="card-body">
-            <h5 class="card-title grey">${ad.title}</h5>
+            <h3 class="card-title grey">${ad.title}</h3>
             <p class="card-text grey">${ad.price}</p>
             <p class="card-text grey">${ad.description}</p>
         </div>
@@ -36,6 +37,7 @@
             <input name="ad" value="${ad}"type="hidden">
             <button class="btn" type="submit">View this ad</button>
         </form>
+    </div>
     </c:forEach>
 </div>
 
