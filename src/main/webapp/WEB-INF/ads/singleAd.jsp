@@ -17,14 +17,14 @@
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
-
-<div class="card-body">
-    <h5 class="card-title"><c:out value="${ads.title}"/></h5>
-    <p class="card-text"><c:out value="${ads.price}"/></p>
-    <p class="card-text"><c:out value="${ads.description}"/></p>
-    <p class="card-text">
-        <input name="id" value="${ads.id}"type="hidden">
+<div class="card" style="width: 18rem; background-color: deeppink">
+    <div class="card-body">
+        <h3 class="card-title"><c:out value="${ads.title}"/></h3>
+        <p class="card-text"><c:out value="${ads.price}"/></p>
+        <p class="card-text"><c:out value="${ads.description}"/></p>
+        <p class="card-text">
+            <input name="id" value="${ads.id}"type="hidden">
+    </div>
 </div>
-
 </body>
 </html>
