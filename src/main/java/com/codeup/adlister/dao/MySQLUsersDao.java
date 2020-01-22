@@ -35,8 +35,6 @@ public class MySQLUsersDao implements Users {
     }
 
 
-
-
     @Override
     public Long insert(User user) {
         String query = "INSERT INTO users(username, email, password) VALUES (?, ?, ?)";
@@ -71,7 +69,6 @@ public class MySQLUsersDao implements Users {
     }
 
 
-
     @Override
     public User updateUser(User user) {
         try {
@@ -90,8 +87,6 @@ public class MySQLUsersDao implements Users {
 
         return null;
     }
-
-
 
 
     private User extractUser(ResultSet rs) throws SQLException {
@@ -120,6 +115,19 @@ public class MySQLUsersDao implements Users {
         }
 
         return null;
+    }
+
+    @Override
+    public User findByUserId(Long userId) {
+        String query = "SELECT * FROM users where id = ?";
+        try {
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setLong(1, userId);
+            return extractUser(statement.executeQuery());
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding a user by id", e);
+        }
     }
 
 }
