@@ -49,3 +49,15 @@ body {
 .grey {
   color: #d3d3d3;
 }
+
+.card{
+  /*display: flex;*/
+  /*box-sizing: border-box;*/
+  width: 25%;
+  border: solid #5B6DCD 3px;
+  padding: 3px;
+  /*justify-content: center;*/
+  margin: 5px;
+}
+
+

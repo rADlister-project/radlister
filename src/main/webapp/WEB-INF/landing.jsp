@@ -31,6 +31,11 @@
             <p class="card-text grey">${ad.price}</p>
             <p class="card-text grey">${ad.description}</p>
         </div>
+        <form action="/singleAd">
+            <input name="adId" value="${ad.id}"type="hidden">
+            <input name="ad" value="${ad}"type="hidden">
+            <button class="btn" type="submit">View this ad</button>
+        </form>
     </c:forEach>
 </div>
 

@@ -90,6 +90,7 @@ public class MySQLAdsDao implements Ads {
 
     @Override
     public Ad editAd(Ad ad) {
+
         try {
             System.out.println("try");
             String query = "UPDATE ads SET title = ?, price = ?, description = ? WHERE id = ?";
@@ -106,6 +107,7 @@ public class MySQLAdsDao implements Ads {
 
         return null;
     }
+
 
     private List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {
         List<Ad> ads = new ArrayList<>();
@@ -139,7 +141,7 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
-    public Long deleteAd(Long Id){
+    public Long deleteAd(Long Id) {
         try {
             String query = "DELETE FROM ads where id  = ?";
             PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
@@ -167,7 +169,38 @@ public class MySQLAdsDao implements Ads {
         }
 
     }
+    //method used for search the database
+    public List<Ad> search(String userInput) {
+        PreparedStatement stmt = null;
+        try {
+            String query = "SELECT * FROM ads WHERE title LIKE ? OR description LIKE ?";
+            String queryWildCard = userInput + "%";
 
 
+            stmt = connection.prepareStatement(query);
+            stmt.setString(1, queryWildCard);
+            stmt.setString(2, queryWildCard);
+
+    @Override
+    public Ad singleAd(Long id) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM ads WHERE id = ?");
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+            List<Ad> ads = createAdsFromResults(rs);
+            return ads.get(0);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving this ad.", e);
+        }
 
     }
+          ResultSet rs = stmt.executeQuery();
+          return createAdsFromResults(rs);
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving the ads", e);
+        }
+    }
+
+}

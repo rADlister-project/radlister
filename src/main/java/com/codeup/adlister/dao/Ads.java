@@ -13,7 +13,9 @@ public interface Ads {
 
     // insert a new ad and return the new ad's id
     Long insert(Ad ad);
+    // search ads by user input
 
+    List<Ad>search(String userInput);
     //    get a list of ads from a particular user
     List<Ad> allFromUser(Long userID);
 
@@ -25,6 +27,10 @@ public interface Ads {
     public Ad extractAd(ResultSet rs) throws SQLException;
 
     // editAd
+
     public Ad editAd(Ad ad);
+//single ad
+    Ad singleAd(Long Id);
+
 }
 

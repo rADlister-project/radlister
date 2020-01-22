@@ -20,6 +20,7 @@ public class EditAdServlet extends HttpServlet {
         String adTitle = request.getParameter("editAdTitle");
         int adPrice = Integer.parseInt(request.getParameter("editAdPrice"));
         String adDescription = request.getParameter("editAdDescription");
+
         long Id = Long.parseLong(request.getParameter("adId"));
         User user = (User) request.getSession().getAttribute("user");
         long userID = user.getId();
@@ -52,4 +53,5 @@ public class EditAdServlet extends HttpServlet {
 
     }
 }
+
 
