@@ -18,7 +18,6 @@ public class Ad {
     }
 
     public Ad(long userId, String title, int price, String description) {
-
         this.userId = userId;
         this.title = title;
         this.price = price;

@@ -12,35 +12,44 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name = "EditAdServlet")
+@WebServlet("/EditAd")
 public class EditAdServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/editad.jsp").forward(request, response);
-    }
+
+
+        String adTitle = request.getParameter("editAdTitle");
+        int adPrice = Integer.parseInt(request.getParameter("editAdPrice"));
+        String adDescription = request.getParameter("editAdDescription");
+        long Id = Long.parseLong(request.getParameter("adId"));
+        User user = (User) request.getSession().getAttribute("user");
+        long userID = user.getId();
+        Ad adToEdit = new Ad(Id, userID, adTitle, adPrice, adDescription);
+        System.out.println("post success");
+//        adToEdit.setTitle(adTitle);
+//        adToEdit.setPrice(adPrice);
+//        adToEdit.setDescription(adDescription);
+//        adToEdit.setId(Id);
+        DaoFactory.getAdsDao().editAd(adToEdit);
+        response.sendRedirect("/profile");
+
+
+        }
+
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String adTitle = request.getParameter("editAdTitle");
-        String adDescription = request.getParameter("editAdDescription");
-        Long adPrice = Long.parseLong(request.getParameter("editAdPrice"));
+//        String adTitle = request.getParameter("editAdTitle");
+//        int adPrice = Integer.parseInt((String) request.getAttribute("editAdPrice"));
+//        String adDescription = request.getParameter("editAdDescription");
         Long Id = Long.parseLong(request.getParameter("adId"));
+//
+//        request.setAttribute("adTitle", adTitle);
+//        request.setAttribute("adPrice", adPrice);
+//        request.setAttribute("adDescription", adDescription);
+        request.setAttribute("adId", Id);
 
-        if (adTitle != null && adDescription != null && adPrice != null) {
-            try {
-                Ad adToEdit = (Ad) request.getSession().getAttribute("Id");
-                adToEdit.setTitle(adTitle);
-                adToEdit.setDescription(adDescription);
-//                adToEdit.setPrice(adPrice);
-                adToEdit.setId(Id);
-                DaoFactory.getAdsDao().editAd(adToEdit);
-                response.sendRedirect("/profile");
-            } catch (SQLException e) {
-                e.printStackTrace();
-                response.sendRedirect("/edituser");
-            }
 
-        } else {
-            response.sendRedirect("/edituser");
-        }
-    }
+        request.getRequestDispatcher("/WEB-INF/editad.jsp").forward(request, response);
+
     }
 }
+

@@ -32,13 +32,13 @@
                 <input name="id" value="${ad.id}"type="hidden">
 
                 <%-- is /profile the best place for this to go?--%>
-                <form action="/profile" method="post">
-                    <button type="submit">Edit this ad</button>
+                <form action="/EditAd">
                 <input name="adTitle" value="${ad.title}"type="hidden">
                 <input name="adPrice" value="${ad.price}"type="hidden">
-                <input name="adDescription" value="${ad.description}"type="hidden">
-
-            </form>
+                <input name="adDescription" value="${ad.description}" type="hidden">
+                <input name="adId" value="${ad.id}"type="hidden">
+                <button type="submit">Edit this ad</button>
+                </form>
                 <form action="/deleteAdConfirm" method="post">
                     <input name="adId" value="${ad.id}"type="hidden">
                     <input name="ad" value="${ad}"type="hidden">
