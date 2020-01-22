@@ -1,3 +1,15 @@
 .rock{
   font-family: 'Rock Salt', cursive;
 }
+
+.card{
+  /*display: flex;*/
+  /*box-sizing: border-box;*/
+  width: 25%;
+  border: solid #5B6DCD 3px;
+  padding: 3px;
+  /*justify-content: center;*/
+  margin: 5px;
+}
+
+

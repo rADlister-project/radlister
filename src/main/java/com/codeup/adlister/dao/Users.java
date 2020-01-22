@@ -13,5 +13,6 @@ public interface Users {
     User updateUser(User user) throws SQLException;
 //    Long saveUser(User user);
     User deleteUser(User user);
+
     User findByUserId(Long userId);
 }
