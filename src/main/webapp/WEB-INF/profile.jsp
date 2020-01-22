@@ -44,6 +44,11 @@
                     <input name="ad" value="${ad}"type="hidden">
                     <button class="btn-danger" type="submit">Delete this ad</button>
                 </form>
+                <form action="/singleAd">
+                <input name="adId" value="${ad.id}"type="hidden">
+                <input name="ad" value="${ad}"type="hidden">
+                <button type="submit">View this ad</button>
+                </form>
             </div>
         </c:forEach>
     </div>
