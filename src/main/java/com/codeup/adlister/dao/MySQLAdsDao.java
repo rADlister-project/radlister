@@ -88,6 +88,11 @@ public class MySQLAdsDao implements Ads {
         );
     }
 
+    @Override
+    public Ad editAd(Ad adToUpdate) {
+        return null;
+    }
+
 //    @Override
 //    public Ad editAd(Ad ad) {
 //        try {
