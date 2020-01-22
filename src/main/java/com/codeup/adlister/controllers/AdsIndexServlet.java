@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 @WebServlet(name = "controllers.AdsIndexServlet", urlPatterns = "/ads")
@@ -22,7 +23,12 @@ public class AdsIndexServlet extends HttpServlet {
         //post request to display the info
         String userSearch = request.getParameter("search");
         if(userSearch != null && !userSearch.equals("")){
-            List<Ad> ads = DaoFactory.getAdsDao().search(userSearch);
+            List<Ad> ads = null;
+            try {
+                ads = DaoFactory.getAdsDao().search(userSearch);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
             if(!ads.isEmpty()){
                 request.setAttribute("ads", ads);
                 request.setAttribute("userInput", request.getParameter("search"));

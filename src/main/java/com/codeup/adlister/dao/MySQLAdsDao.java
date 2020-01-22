@@ -89,6 +89,22 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
+    public Ad editAd(Ad ad) {
+
+        try {
+            System.out.println("try");
+            String query = "UPDATE ads SET title = ?, price = ?, description = ? WHERE id = ?";
+            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.setString(1, ad.getTitle());
+            stmt.setInt(2, ad.getPrice());
+            stmt.setString(3, ad.getDescription());
+            stmt.setLong(4, ad.getId());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("catch");
+            e.printStackTrace();
+        }
+
 
     public Ad editAd(Ad adToUpdate) {
         return null;
@@ -157,8 +173,9 @@ public class MySQLAdsDao implements Ads {
         }
 
     }
+
     //method used for search the database
-    public List<Ad> search(String userInput) {
+    public List<Ad> search(String userInput) throws SQLException {
         PreparedStatement stmt = null;
         try {
             String query = "SELECT * FROM ads WHERE title LIKE ? OR description LIKE ?";
@@ -168,6 +185,15 @@ public class MySQLAdsDao implements Ads {
             stmt = connection.prepareStatement(query);
             stmt.setString(1, queryWildCard);
             stmt.setString(2, queryWildCard);
+
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving the ads", e);
+        }
+    }
+
 
     @Override
     public Ad singleAd(Long id) {
@@ -183,12 +209,4 @@ public class MySQLAdsDao implements Ads {
         }
 
     }
-          ResultSet rs = stmt.executeQuery();
-          return createAdsFromResults(rs);
-
-        } catch (SQLException e) {
-            throw new RuntimeException("Error retrieving the ads", e);
-        }
-    }
-
 }

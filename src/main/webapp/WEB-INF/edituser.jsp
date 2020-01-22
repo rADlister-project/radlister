@@ -37,19 +37,19 @@
     <form action="/edituser" method="post">
         <div class="form-group">
             <label for="editUserName">Edit User Name:</label>
-            <input type="text" name="editUserName" id="editUserName" value="${sessionScope.user.username}">
+            <input type="text" name="editUserName" id="editUserName" value="${sessionScope.user.username}" required>
         </div>
         <div class="form-group">
             <label for="editEmail">Edit Email</label>
-            <input type="text" name="editEmail" id="editEmail" value="${sessionScope.user.email}">
+            <input type="text" name="editEmail" id="editEmail" value="${sessionScope.user.email}" required>
         </div>
         <div class="form-group">
             <label for="editPassword">Edit Password</label>
-            <input type="password" name="editPassword" id="editPassword" placeholder="password">
+            <input type="password" name="editPassword" id="editPassword" placeholder="password" required>
         </div>
         <div class="form-group">
             <label for="confirmPassword">Confirm Password</label>
-            <input id="confirmPassword" name="confirmPassword" class="form-control" type="password">
+            <input id="confirmPassword" name="confirmPassword" class="form-control" type="password"required>
         </div>
         <input type="submit" class="btn btn-primary btn-block">
         <input type="hidden" name="userId" value="${sessionScope.user.id}">
