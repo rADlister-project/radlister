@@ -105,12 +105,8 @@ public class MySQLAdsDao implements Ads {
             e.printStackTrace();
         }
 
-
-    public Ad editAd(Ad adToUpdate) {
         return null;
     }
-
-
 
 
     private List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {
