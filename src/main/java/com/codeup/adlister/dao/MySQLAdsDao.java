@@ -169,8 +169,9 @@ public class MySQLAdsDao implements Ads {
         }
 
     }
+
     //method used for search the database
-    public List<Ad> search(String userInput) {
+    public List<Ad> search(String userInput) throws SQLException {
         PreparedStatement stmt = null;
         try {
             String query = "SELECT * FROM ads WHERE title LIKE ? OR description LIKE ?";
@@ -180,6 +181,15 @@ public class MySQLAdsDao implements Ads {
             stmt = connection.prepareStatement(query);
             stmt.setString(1, queryWildCard);
             stmt.setString(2, queryWildCard);
+
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving the ads", e);
+        }
+    }
+
 
     @Override
     public Ad singleAd(Long id) {
@@ -195,12 +205,4 @@ public class MySQLAdsDao implements Ads {
         }
 
     }
-          ResultSet rs = stmt.executeQuery();
-          return createAdsFromResults(rs);
-
-        } catch (SQLException e) {
-            throw new RuntimeException("Error retrieving the ads", e);
-        }
-    }
-
 }

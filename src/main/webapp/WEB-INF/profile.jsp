@@ -3,12 +3,11 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Your Profile"/>
+        <jsp:param name="title" value="Your Profile" />
     </jsp:include>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
-
+<jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <div class="container d-flex">
     <h1>Welcome, ${sessionScope.user.username}!</h1>
     <form action="/logout">
@@ -17,59 +16,40 @@
     <form action="/edituser">
         <button type="submit">Edit Profile</button>
     </form>
-    <form action="/confirmDelete" method="post">
+    <form action="/confirmDelete">
         <button type="submit">Delete Profile</button>
     </form>
 </div>
 <div class="container">
     <h1>Here are all of your ads!</h1>
     <c:forEach var="ad" items="${ads}">
-                <%-- is /profile the best place for this to go?--%>
-                <form action="/EditAd">
+        <div class="card-body">
+            <h5 class="card-title">${ad.title}</h5>
+            <p class="card-text">${ad.price}</p>
+            <p class="card-text">${ad.description}</p>
+            <p class="card-text">
+                <input name="id" value="${ad.id}"type="hidden">
+                    <%-- is /profile the best place for this to go?--%>
+            <form action="/EditAd">
+                <button type="submit">Edit this ad</button>
                 <input name="adTitle" value="${ad.title}"type="hidden">
                 <input name="adPrice" value="${ad.price}"type="hidden">
-                <input name="adDescription" value="${ad.description}" type="hidden">
+                <input name="adDescription" value="${ad.description}"type="hidden">
+            <input name="adId" value="${ad.id}"type="hidden">
+
+        </form>
+            <form action="/deleteAdConfirm" method="post">
                 <input name="adId" value="${ad.id}"type="hidden">
-                <button type="submit">Edit this ad</button>
-                </form>
-                <form action="/deleteAdConfirm" method="post">
-                    <input name="adId" value="${ad.id}" type="hidden">
-                    <input name="ad" value="${ad}" type="hidden">
-                    <button class="btn-danger" type="submit">Delete this ad</button>
-                </form>
-                <form action="/singleAd">
+                <input name="ad" value="${ad}"type="hidden">
+                <button class="btn-danger" type="submit">Delete this ad</button>
+            </form>
+            <form action="/singleAd">
                 <input name="adId" value="${ad.id}"type="hidden">
                 <input name="ad" value="${ad}"type="hidden">
                 <button type="submit">View this ad</button>
-                </form>
-            </div>
-
+            </form>
         </div>
-<%--        </div>--%>
-
-<%--        <div class="card-body text-center">--%>
-<%--            <h5 class="card-title">${ad.title}</h5>--%>
-<%--            <p class="card-text">${ad.price}</p>--%>
-<%--            <p class="card-text">${ad.description}</p>--%>
-<%--            <p class="card-text">--%>
-<%--                <input name="id" value="${ad.id}" type="hidden">--%>
-
-<%--            <div class="card-buttons">--%>
-<%--                <form action="/profile" method="post">--%>
-<%--                    <input name="adTitle" value="${ad.title}" type="hidden">--%>
-<%--                    <input name="adPrice" value="${ad.price}" type="hidden">--%>
-<%--                    <input name="adDescription" value="${ad.description}" type="hidden">--%>
-<%--                    <button class="btn-primary" type="submit">Edit this ad</button>--%>
-<%--                </form>--%>
-<%--                <form action="/deleteAdConfirm" method="post">--%>
-<%--                    <input name="adId" value="${ad.id}" type="hidden">--%>
-<%--                    <input name="ad" value="${ad}" type="hidden">--%>
-<%--                    <button class="btn-danger" type="submit">Delete this ad</button>--%>
-<%--                </form>--%>
-<%--            </div>--%>
-<%--        </div>--%>
     </c:forEach>
 </div>
-
 </body>
 </html>
