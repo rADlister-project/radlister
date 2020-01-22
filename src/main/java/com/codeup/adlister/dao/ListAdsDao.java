@@ -30,6 +30,11 @@ public class ListAdsDao implements Ads {
     }
 
     @Override
+    public List<Ad> search(String userInput) {
+        return null;
+    }
+
+    @Override
     public List<Ad> allFromUser(Long userID) {
         return null;
     }
@@ -54,10 +59,10 @@ public class ListAdsDao implements Ads {
         return null;
     }
 
-    @Override
-    public Ad editAd(Ad adToUpdate) {
-        return null;
-    }
+//    @Override
+//    public Ad editAd(Ad adToUpdate) {
+//        return null;
+//    }
 
 
     private List<Ad> generateAds() {
