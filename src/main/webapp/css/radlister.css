@@ -47,7 +47,7 @@ body {
 }
 
 .grey {
-  color: #d3d3d3;
+  color: #5d5d5d!important;
 }
 
 .card{
@@ -58,6 +58,11 @@ body {
   padding: 3px;
   /*justify-content: center;*/
   margin: 5px;
+}
+
+#searchForm {
+  margin-top: 12px;
+  margin-right: 25px;
 }
 
 
