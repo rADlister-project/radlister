@@ -19,6 +19,7 @@ public interface Ads {
 
     //    gets 3 random ads
     public List<Ad> getRandomAds();
+
     Long deleteAd(Long Id);
     public Ad getAdById(long id);
     public Ad extractAd(ResultSet rs) throws SQLException;
@@ -26,3 +27,4 @@ public interface Ads {
     // editAd
     public Ad editAd(Ad adToUpdate);
 }
+
