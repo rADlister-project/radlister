@@ -24,23 +24,22 @@ public class EditAdServlet extends HttpServlet {
         Long adPrice = Long.parseLong(request.getParameter("editAdPrice"));
         Long Id = Long.parseLong(request.getParameter("adId"));
 
-        if (adTitle != null && adDescription != null && adPrice != null) {
-            try {
-                Ad adToEdit = (Ad) request.getSession().getAttribute("Id");
-                adToEdit.setTitle(adTitle);
-                adToEdit.setDescription(adDescription);
-//                adToEdit.setPrice(adPrice);
-                adToEdit.setId(Id);
-                DaoFactory.getAdsDao().editAd(adToEdit);
-                response.sendRedirect("/profile");
-            } catch (SQLException e) {
-                e.printStackTrace();
-                response.sendRedirect("/edituser");
-            }
-
-        } else {
-            response.sendRedirect("/edituser");
-        }
+//        if (adTitle != null && adDescription != null && adPrice != null) {
+//            try {
+//                Ad adToEdit = (Ad) request.getSession().getAttribute("Id");
+//                adToEdit.setTitle(adTitle);
+//                adToEdit.setDescription(adDescription);
+////                adToEdit.setPrice(adPrice);
+//                adToEdit.setId(Id);
+//                DaoFactory.getAdsDao().editAd(adToEdit);
+//                response.sendRedirect("/profile");
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//                response.sendRedirect("/edituser");
+//            }
+//
+//        } else {
+//            response.sendRedirect("/edituser");
+//        }
     }
     }
-}

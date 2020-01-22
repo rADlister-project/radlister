@@ -26,5 +26,7 @@ public interface Ads {
 
     // editAd
     public Ad editAd(Ad adToUpdate);
+
+    Ad singleAd(Long Id);
 }
 

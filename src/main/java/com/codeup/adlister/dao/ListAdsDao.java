@@ -59,6 +59,11 @@ public class ListAdsDao implements Ads {
         return null;
     }
 
+    @Override
+    public Ad singleAd(Long Id) {
+        return null;
+    }
+
 
     private List<Ad> generateAds() {
         List<Ad> ads = new ArrayList<>();
