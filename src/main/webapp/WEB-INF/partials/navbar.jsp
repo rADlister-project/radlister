@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navbar-brand" href="/ads">Adlister</a>
+            <a class="navbar-brand teal rock" href="/ads">Radlister</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
             <li>
@@ -16,21 +16,21 @@
             </li>
             <c:if test="${sessionScope.user != null}">
                 <li>
-                    <a href="/login">profile</a>
+                    <a href="/login" class="teal rock">profile</a>
                 </li>
                 <li>
-                    <a href="/ads/create">List Your Ad!</a>
+                    <a href="/ads/create" class="teal rock">List Your Ad!</a>
                 </li>
                 <li>
-                    <a href="/logout">logout</a>
+                    <a href="/logout" class="teal rock">logout</a>
                 </li>
             </c:if>
             <c:if test="${sessionScope.user == null}">
                 <li>
-                    <a href="/register">Register</a>
+                    <a href="/register" class="teal rock">Register</a>
                 </li>
                 <li>
-                    <a href="/login">login</a>
+                    <a href="/login" class="teal rock">login</a>
                 </li>
             </c:if>
         </ul>

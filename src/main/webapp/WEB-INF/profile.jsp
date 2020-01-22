@@ -24,20 +24,13 @@
 <div class="container">
     <h1>Here are all of your ads!</h1>
     <c:forEach var="ad" items="${ads}">
-
-        <div class="card text-center" style="width:400px">
-            <img class="card-img-top" src="img_avatar1.png" alt="Card image">
-            <h4 class="card-title">Title: ${ad.title}</h4>
-            <p class="card-text">Price: $${ad.price}</p>
-            <p class="card-text">Decription: ${ad.description}</p>
-<%--                <a href="#" class="btn btn-primary">See Profile</a>--%>
-            <input name="id" value="${ad.id}" type="hidden">
-            <div class="card-buttons d-flex">
-                <form action="/profile" method="post">
-                    <input name="adTitle" value="${ad.title}" type="hidden">
-                    <input name="adPrice" value="${ad.price}" type="hidden">
-                    <input name="adDescription" value="${ad.description}" type="hidden">
-                    <button class="btn-primary" type="submit">Edit this ad</button>
+                <%-- is /profile the best place for this to go?--%>
+                <form action="/EditAd">
+                <input name="adTitle" value="${ad.title}"type="hidden">
+                <input name="adPrice" value="${ad.price}"type="hidden">
+                <input name="adDescription" value="${ad.description}" type="hidden">
+                <input name="adId" value="${ad.id}"type="hidden">
+                <button type="submit">Edit this ad</button>
                 </form>
                 <form action="/deleteAdConfirm" method="post">
                     <input name="adId" value="${ad.id}" type="hidden">
