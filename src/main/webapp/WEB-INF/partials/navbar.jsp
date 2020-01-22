@@ -7,13 +7,7 @@
             <a class="navbar-brand teal rock" href="/ads">Radlister</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-            <li>
-                <form method="POST" action="/ads" id="searchForm">
-                    <input type="text" name="search" id="search" placeholder="Search" value="<c:out value="${userInput}"></c:out>">
-                    <button>Submit</button>
-                </form>
 
-            </li>
             <c:if test="${sessionScope.user != null}">
                 <li>
                     <a href="/login" class="teal rock">profile</a>
@@ -33,6 +27,13 @@
                     <a href="/login" class="teal rock">login</a>
                 </li>
             </c:if>
+            <li>
+                <form method="POST" action="/ads" id="searchForm">
+                    <input type="text" name="search" id="search" placeholder="Search" value="<c:out value="${userInput}"></c:out>">
+                    <button>Submit</button>
+                </form>
+
+            </li>
         </ul>
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

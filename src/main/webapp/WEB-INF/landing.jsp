@@ -39,7 +39,6 @@
     </c:forEach>
 </div>
 
-<img src="/Assets/R.png">
 
 
 
