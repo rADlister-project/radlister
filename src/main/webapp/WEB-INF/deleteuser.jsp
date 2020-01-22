@@ -9,14 +9,11 @@
 <html>
 <head>
     <jsp:include page="partials/head.jsp">
-        <jsp:param name="title" value="Edit User" />
+        <jsp:param name="title" value="Delete User" />
     </jsp:include>
 
 </head>
 
-<head>
-    <title>Delete User</title>
-</head>
 <body>
 <jsp:include page="partials/navbar.jsp" />
 <div class="container">
