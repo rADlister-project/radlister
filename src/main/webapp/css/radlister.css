@@ -71,7 +71,7 @@ body {
   /*border: solid #5B6DCD 3px;*/
   padding: 0;
   /*justify-content: center;*/
-  margin: 5px;
+  margin: 10px;
   text-align: center;
   border: 8px solid deeppink;
   border-radius: 8px;
@@ -80,7 +80,7 @@ body {
 
 
 .main-container{
-  max-width: 1100px;
+  width: 80%;
   margin: 0 0 0 10%;
 }
 
@@ -94,7 +94,6 @@ body {
 
 .card-title {
   background-color: deeppink;
-  max-width: 250px;
 
   margin: auto!important;
   margin-top: 10%!important;
@@ -119,6 +118,49 @@ body {
   border-radius: 5px;
   margin-bottom: 2em;
 }
+#single-ad-container{
+  display: flex;
+  justify-content: center;
+  height: 60%;
+
+}
+
+.single-ad-card{
+  background-color: deeppink;
+  margin-top: 6%;
+  height: 100% !important;
+  width: 50%!important;
+  border: 10px solid #FDFF02;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#single-ad-title{
+  font-size: 6em;
+  margin-top: 1em !important;
+  margin-bottom: .5em !important;
+}
+
+
+.single-ad-line{
+  color: #FDFF02;
+  width: 80%;
+  margin: auto;
+
+}
+#single-ad-price{
+  margin-top: .5em !important;
+  font-size: 3.5em;
+}
+
+#single-ad-description{
+  font-size: 2.5em;
+}
+
+
+
+
+
 
 .landingViewBtn, .profile-view-btn{
   background-color: #5d5d5d!important;
@@ -190,7 +232,10 @@ body {
 .navlink {
   font-size: 1.5em;
 }
-
+.navbar{
+  padding-top: .5em !important;
+  padding-bottom: .5em !important;
+}
 .navbar-brand {
   font-size: 1.8em;
   margin-left: 3%!important;
@@ -220,7 +265,7 @@ body {
   color: lightgrey;
 }
 
-.login-page, .register-page, .edit-profile-container, .welcome-container, .main-container {
+.login-page, .register-page, .edit-profile-container, .welcome-container {
  margin-top: 6%;
 
 }
@@ -257,5 +302,56 @@ body {
   margin-left: 0%!important;
 }
 
+#footer{
+  border-top: 5px solid deeppink;
+  background-color: #5d5d5d;
+  height: 5em;
+  position: absolute!important;
+  bottom: 0px!important;
+  width: 100%!important;
+
+}
+#footer-ul{
+  display: flex;
+  justify-content: flex-end!important;
+  margin:0;
+  /*padding-left: .25em;*/
+  color: #FDFF02;
+  list-style: none;
+  line-height: 4em;
+
+}
+#footer-left{
+  margin-right: auto;
+  margin-left: 3%;
+}
+
+.footer-link{
+  color: #FDFF02;
+  font-size: 1.5em;
+  margin-right: 1%;
+  margin-left: 1%;
+  /*width: 15%;*/
+}
+
+/* unvisited link */
+a:link {
+  color: #FDFF02;
+}
+
+/* visited link */
+a:visited {
+  color: #14ff80;
+}
+
+/* mouse over link */
+a:hover {
+  color: #ff1493;
+}
+
+/* selected link */
+a:active {
+  color: #01a0ca;
+}
 
 

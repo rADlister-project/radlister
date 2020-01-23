@@ -27,6 +27,7 @@
         <p class="card-text">Please try again!</p>
         <p class="card-text">
     </div>
-
+</div>
+<jsp:include page="partials/footer.jsp"></jsp:include>
 </body>
 </html>
