@@ -1,6 +1,7 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.Category;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -71,6 +72,31 @@ public class ListAdsDao implements Ads {
 
     @Override
     public Ad singleAd(Long Id) {
+        return null;
+    }
+
+    @Override
+    public Long insertCategory(Category category) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public List<Long> findCategoriesByID(long ad_id) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public void deleteCategories(long ad_id) {
+
+    }
+
+    @Override
+    public List<Ad> findAdsByCategories(List<Long> categories) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public List<Ad> findAdsByCategory(long category) throws SQLException {
         return null;
     }
 

@@ -1,6 +1,7 @@
 package com.codeup.adlister.models;
 
 
+import com.codeup.adlister.dao.DaoFactory;
 
 public class Ad {
     private long id;
@@ -8,6 +9,7 @@ public class Ad {
     private String title;
     private int price;
     private String description;
+
 
     public Ad(long id, long userId, String title, int price, String description) {
         this.id = id;
@@ -40,9 +42,9 @@ public class Ad {
         this.userId = userId;
     }
 
-
-
-    public void setPrice(int price) { this.price = price; }
+    public void setPrice(int price) {
+        this.price = price;
+    }
 
     public String getTitle() {
         return title;
@@ -51,6 +53,7 @@ public class Ad {
     public void setTitle(String title) {
         this.title = title;
     }
+
     public Integer getPrice() {
         return price;
     }
@@ -66,4 +69,5 @@ public class Ad {
     public void setDescription(String description) {
         this.description = description;
     }
+
 }

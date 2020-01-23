@@ -2,28 +2,23 @@ package com.codeup.adlister.models;
 
 public class Category {
     private long id;
-    private String description;
+    private long ad_id;
+    private long category;
 
-
-    public Category(long id, String description) {
-        this.id = id;
-        this.description = description;
+    public Category (long ad_id, long category){
+        this.ad_id = ad_id;
+        this.category = category;
     }
-
-
-    public long getId() {
-        return id;
+    // Getters and setters for dealing with category objects
+    public long getAd_id(){
+        return ad_id;
     }
 
     public void setId(long id) {
         this.id = id;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription (String description) {
-        this.description = description;
+    public long getCategory (){
+        return category;
     }
 }

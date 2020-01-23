@@ -1,13 +1,14 @@
 package com.codeup.adlister.dao;
 
-import com.codeup.adlister.models.Categories;
-import com.codeup.adlister.models.MySQLCategoriesDao;
+import com.codeup.adlister.models.Category;
+
+import java.util.List;
 
 public class DaoFactory {
     private static Ads adsDao;
     private static Users usersDao;
     private static Config config = new Config();
-    private static Categories categoriesDao;
+
 
     public static Ads getAdsDao() {
         if (adsDao == null) {
@@ -23,10 +24,4 @@ public class DaoFactory {
         return usersDao;
     }
 
-    public static Categories getCategoriesDao(){
-        if (categoriesDao == null){
-            categoriesDao = new MySQLCategoriesDao(config);
-        }
-        return categoriesDao;
-    }
 }

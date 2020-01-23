@@ -1,6 +1,7 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.Category;
 import com.codeup.adlister.models.User;
 
 import java.sql.ResultSet;
@@ -26,11 +27,19 @@ public interface Ads {
     public Ad getAdById(long id);
     public Ad extractAd(ResultSet rs) throws SQLException;
 
-    // editAd
+    // editAd public
+    Ad editAd(Ad ad);
 
-    public Ad editAd(Ad ad);
-//single ad
+    //single ad
     Ad singleAd(Long Id);
+
+    // categories
+    Long insertCategory(Category category) throws SQLException;
+    List<Long> findCategoriesByID (long ad_id) throws SQLException;
+    void deleteCategories (long ad_id);
+    List<Ad> findAdsByCategories (List<Long> categories) throws SQLException;
+    List<Ad> findAdsByCategory (long category) throws SQLException;
+
 
 }
 
