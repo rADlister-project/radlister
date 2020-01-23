@@ -24,8 +24,8 @@
         <p class="lead white rock">Rad Ads for a totally tubular life!</p>
     </div>
 </div>
-<h1 class="grey rock " style="margin-top: 2%; margin-bottom: 5%">Check out some of our Rad Ads!</h1>
-<div class="main-container">
+<div class="main-container container">
+    <h1 class="grey rock " style="margin-top: 2%; margin-bottom: 5%">Check out some of our Rad Ads!</h1>
     <div class="card-container">
         <c:forEach var="ad" items="${ads}">
             <div class="card landing-card" style="width: 18rem; background-color: deeppink">

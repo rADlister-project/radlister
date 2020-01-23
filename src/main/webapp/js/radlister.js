@@ -1,6 +1,20 @@
 function showConfirmDelete(){
-    confirm("Are you sure you want to continue with deleting your account? This will also delete all associated ads!");
+    var userconfirm = confirm("Are you sure you want to continue with deleting your account? This will also delete all associated ads!");
+    if (!userconfirm){
+        return false;
+    } else {
+        this.$('confirmationbutton').submit();
+    }
 }
 function showConfirmDeleteAd(){
-    confirm("Are you sure you want to continue with deleting your ad?");
+    var userconfirm = confirm("Are you sure you want to continue with deleting your ad?");
+    if (!userconfirm){
+        return false;
+    } else {
+        this.$('.confirmationbutton').submit();
+    }
 }
+
+
+
+
