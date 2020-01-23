@@ -10,27 +10,27 @@
 
             <c:if test="${sessionScope.user != null}">
                 <li>
-                    <a href="/login" class="teal rock">profile</a>
+                    <a href="/login" class="teal rock navlink">profile</a>
                 </li>
                 <li>
-                    <a href="/ads/create" class="teal rock">List Your Ad!</a>
+                    <a href="/ads/create" class="teal rock navlink">List Your Ad!</a>
                 </li>
                 <li>
-                    <a href="/logout" class="teal rock">logout</a>
+                    <a href="/logout" class="teal rock navlink">logout</a>
                 </li>
             </c:if>
             <c:if test="${sessionScope.user == null}">
                 <li>
-                    <a href="/register" class="teal rock">Register</a>
+                    <a href="/register" class="teal rock navlink">Register</a>
                 </li>
                 <li>
-                    <a href="/login" class="teal rock">login</a>
+                    <a href="/login" class="teal rock navlink">login</a>
                 </li>
             </c:if>
             <li>
                 <form method="POST" action="/ads" id="searchForm">
-                    <input type="text" name="search" id="search" placeholder="Search" value="<c:out value="${userInput}"></c:out>">
-                    <button>Submit</button>
+                    <input type="text" name="search" id="searchBar" placeholder="Search" value="<c:out value="${userInput}"></c:out>">
+                    <button id="searchButton">Submit</button>
                 </form>
 
             </li>

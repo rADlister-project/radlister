@@ -53,6 +53,9 @@ body {
 .grey {
   color: #5d5d5d!important;
 }
+.lightgrey {
+  color: lightgrey!important;
+}
  .green {
    color: #14ff80!important;
  }
@@ -74,10 +77,6 @@ body {
   border-radius: 8px;
 }
 
-#searchForm {
-  margin-top: 12px;
-  margin-right: 25px;
-}
 
 
 .main-container{
@@ -96,4 +95,52 @@ body {
 .card-title {
   background-color: deeppink;
   margin: 0 !important;
+  margin-top: 10%!important;
+}
+
+.landingCard {
+  height: 200px!important;
+  width: 250px!important;
+  border: 5px solid #FDFF02;
+  border-radius: 5px;
+}
+
+.landingViewBtn{
+  background-color: #5d5d5d!important;
+  color: white!important;
+  border: 2px solid #FDFF02;
+  border-radius: 2px;
+}
+
+.navlink {
+  font-size: 1.5em;
+}
+
+.navbar-brand {
+  font-size: 1.8em;
+  margin-left: 3%!important;
+}
+
+#searchForm {
+  margin-top: 9px;
+  margin-right: 25px;
+}
+
+
+#searchBar{
+  padding: 4px;
+  line-height: 20px;
+  border: 2px solid #01C4CA;
+  border-radius: 5px;
+
+}
+
+#searchButton {
+  padding: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  background-color: deeppink;
+  border: 2px solid #01C4CA;
+  border-radius: 5px;
+  color: lightgrey;
 }
