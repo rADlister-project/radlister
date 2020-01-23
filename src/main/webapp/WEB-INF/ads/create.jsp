@@ -22,6 +22,23 @@
                 <label for="description">Description</label>
                 <textarea id="description" name="description" class="form-control" type="text"></textarea>
             </div>
+            <div class="form-group">
+                <%--Checkboxes only send a value if they are checked, thus in servlets we can verfiy them by comparing them against null--%>
+                <label  class="label2" for="checkbox1">For Sale</label>
+                <input type="checkbox" name="checkbox1" id="checkbox1" value="1">
+                <label  class="label2" for="checkbox2">Free Stuff</label>
+                <input type="checkbox" name="checkbox2" id="checkbox2" value="2">
+                <label  class="label2" for="checkbox3">Help Wanted</label>
+                <input type="checkbox" name="checkbox3" id="checkbox3" value="3">
+                <label  class="label2" for="checkbox4">Gigs</label>
+                <input type="checkbox" name="checkbox4" id="checkbox4" value="4">
+                <label  class="label2" for="checkbox5">Services</label>
+                <input type="checkbox" name="checkbox5" id="checkbox5" value="5">
+                <label  class="label2" for="checkbox6">Housing</label>
+                <input type="checkbox" name="checkbox6" id="checkbox6" value="6">
+                <label  class="label2" for="checkbox7">Community</label>
+                <input type="checkbox" name="checkbox7" id="checkbox7" value="7">
+            </div>
             <input type="submit" class="btn btn-block btn-primary">
         </form>
     </div>
