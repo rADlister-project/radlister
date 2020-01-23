@@ -18,11 +18,11 @@
 <jsp:include page="partials/navbar.jsp"/>
 <div class="container welcome-container">
     <h1 class="rock grey">Delete ${sessionScope.user.username}'s Account</h1>
-    <form action="/deleteuser" method="post">
+    <form class="confirmationbutton" action="/deleteuser" method="post">
         <div class="form-group">
             <label class="register-label grey" for="confirmPassword">Confirm Password</label>
             <input id="confirmPassword" name="confirmPassword" class="form-control register-input" type="password">
-            <input type="submit" onclick="showConfirmDelete()" class="btn btn-block profile-delete-btn btn-space-fix">
+            <input type="submit" onclick="return showConfirmDelete()" class="btn btn-block profile-delete-btn btn-space-fix">
             <input type="hidden" name="userId" value="${sessionScope.user.id}">
         </div>
 
