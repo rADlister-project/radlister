@@ -53,6 +53,9 @@ body {
 .grey {
   color: #5d5d5d!important;
 }
+.lightgrey {
+  color: lightgrey!important;
+}
  .green {
    color: #14ff80!important;
  }
@@ -74,10 +77,6 @@ body {
   border-radius: 8px;
 }
 
-#searchForm {
-  margin-top: 12px;
-  margin-right: 25px;
-}
 
 
 .main-container{
@@ -95,5 +94,158 @@ body {
 
 .card-title {
   background-color: deeppink;
-  margin: 0 !important;
+  max-width: 250px;
+
+  margin: auto!important;
+  margin-top: 10%!important;
+
 }
+
+.card-text {
+
+}
+
+.landing-card {
+  height: 200px!important;
+  width: 250px!important;
+  border: 5px solid #FDFF02;
+  border-radius: 5px;
+}
+
+.profile-card {
+  height: 225px!important;
+  width: 275px!important;
+  border: 5px solid #FDFF02;
+  border-radius: 5px;
+  margin-bottom: 2em;
+}
+
+.landingViewBtn, .profile-view-btn{
+  background-color: #5d5d5d!important;
+  color: white!important;
+  border: 2px solid #FDFF02;
+  border-radius: 2px;
+}
+.profile-view-btn{
+  padding: 1em;
+  margin: .5em;
+}
+
+.delete-btn{
+  background-color: red;
+  color: white!important;
+  border: 2px solid white;
+  border-radius: 2px;
+  padding: 1em;
+  margin: .5em;
+}
+
+.edit-btn{
+  background-color: #14ff80;
+  color: white!important;
+  border: 2px solid white;
+  border-radius: 2px;
+  padding: 1em;
+  margin: .5em;
+}
+
+.profile-delete-btn{
+  background-color: red;
+  color: white!important;
+  border: 2px solid white;
+  border-radius: 2px;
+  padding: .5em;
+  margin: .5em;
+  font-size: 1.25em;
+}
+
+.profile-edit-btn{
+  background-color: #14ff80;
+  color: white!important;
+  border: 2px solid white;
+  border-radius: 2px;
+  padding: .5em;
+  margin: .5em;
+  font-size: 1.25em;
+}
+
+
+.profile-btn-container{
+  display: flex;
+  justify-content: space-around !important;
+
+}
+
+.profile-btn-edit-container{
+  display: flex;
+  justify-content: space-around !important;
+  width: 40%;
+  margin-top: 1em;
+  margin-bottom: 2.5em;
+
+
+}
+
+
+.navlink {
+  font-size: 1.5em;
+}
+
+.navbar-brand {
+  font-size: 1.8em;
+  margin-left: 3%!important;
+}
+
+#searchForm {
+  margin-top: 9px;
+  margin-right: 25px;
+}
+
+
+#searchBar{
+  padding: 4px;
+  line-height: 20px;
+  border: 2px solid #01C4CA;
+  border-radius: 5px;
+
+}
+
+#searchButton {
+  padding: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  background-color: deeppink;
+  border: 2px solid #01C4CA;
+  border-radius: 5px;
+  color: lightgrey;
+}
+
+.login-page, .register-page {
+ margin-top: 6%;
+
+}
+.login-label, .register-label {
+  margin-top: .25em;
+  font-size: 1.5em;
+}
+.login-input, .register-input {
+  padding: 4px;
+  line-height: 20px;
+  border: 2px solid #ff1493;
+  border-radius: 5px;
+}
+#login-button, #register-button {
+  background-color: #5d5d5d!important;
+  color: white!important;
+  border: 2px solid #FDFF02;
+  border-radius: 2px;
+  margin-top: 1.7em;
+  font-size: 1.4em;
+}
+
+#ad-heading{
+  border-top: 4px solid deeppink;
+  padding-top: 1em;
+  margin-bottom: 1em;
+}
+
