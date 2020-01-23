@@ -32,26 +32,26 @@
 <%--</form>--%>
 
 <jsp:include page="partials/navbar.jsp" />
-<div class="container">
-    <h1>Please EDIT in your information.</h1>
+<div class="container edit-profile-container">
+    <h1 class="rock grey">Please EDIT in your information.</h1>
     <form action="/edituser" method="post">
         <div class="form-group">
-            <label for="editUserName">Edit User Name:</label>
-            <input type="text" name="editUserName" id="editUserName" value="${sessionScope.user.username}" required>
+            <label class="edit-label grey" for="editUserName">Edit User Name</label>
+            <input type="text" name="editUserName" id="editUserName" class="form-control edit-input" value="${sessionScope.user.username}" required>
         </div>
         <div class="form-group">
-            <label for="editEmail">Edit Email</label>
-            <input type="text" name="editEmail" id="editEmail" value="${sessionScope.user.email}" required>
+            <label class="edit-label grey" for="editEmail">Edit Email</label>
+            <input type="text" name="editEmail" id="editEmail" class="form-control edit-input" value="${sessionScope.user.email}" required>
         </div>
         <div class="form-group">
-            <label for="editPassword">Edit Password</label>
-            <input type="password" name="editPassword" id="editPassword" placeholder="password" required>
+            <label class="edit-label grey" for="editPassword">Edit Password</label>
+            <input type="password" name="editPassword" id="editPassword" class="form-control edit-input" required>
         </div>
         <div class="form-group">
-            <label for="confirmPassword">Confirm Password</label>
-            <input id="confirmPassword" name="confirmPassword" class="form-control" type="password"required>
+            <label class="edit-label grey" for="confirmPassword">Confirm Password</label>
+            <input id="confirmPassword" name="confirmPassword" class="form-control edit-input" type="password"required>
         </div>
-        <input type="submit" class="btn btn-primary btn-block">
+        <input id="edit-button" type="submit" class="btn btn-block rock">
         <input type="hidden" name="userId" value="${sessionScope.user.id}">
     </form>
 

@@ -11,21 +11,22 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 
-    <h1 class="grey rock center">Here Are all the Rad ads!</h1>
-    <div class="main-container">
+    <div class="main-container welcome-container">
+        <h1 class="grey rock"style="margin-bottom: 1em;">Here Are all the Rad ads!</h1>
         <div class="card-container">
             <c:forEach var="ad" items="${ads}">
-                <div class="card" style="width: 18rem; background-color: #FDFF02">
+                <div class="card landing-card" style="width: 18rem; background-color: deeppink">
                     <div class="card-body">
-                        <h2 class="card-title teal">${ad.title}</h2>
-                        <h4 class="card-text teal">
+                        <h2 class="card-title lightgrey">${ad.title}</h2>
+                        <h4 class="card-text lightgrey">
+
                             <fmt:formatNumber value="${ad.price}" type="currency" />
                         </h4>
-                        <h5 class="card-text teal">${ad.description}</h5>
+<%--                        <h5 class="card-text teal">${ad.description}</h5>--%>
                         <form action="/singleAd">
                             <input name="adId" value="${ad.id}"type="hidden">
                             <input name="ad" value="${ad}"type="hidden">
-                            <button class="btn" type="submit">View this ad</button>
+                            <button class="btn landingViewBtn rock" style="margin-top: 15px;" type="submit">View</button>
                         </form>
                     </div>
                 </div>
