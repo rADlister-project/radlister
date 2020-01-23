@@ -1,6 +1,7 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.Category;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
@@ -205,4 +206,61 @@ public class MySQLAdsDao implements Ads {
         }
 
     }
+
+    public Long insertCategory(Category category) throws SQLException {
+        String insertQuery = "INSERT INTO ad_category (ad_id, cat_id) VALUES (?, ?)";
+        PreparedStatement ps = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+        ps.setLong(1, category.getAd_id());
+        ps.setLong(2, category.getCategory());
+        ps.executeUpdate();
+        ResultSet rs = ps.getGeneratedKeys();
+        rs.next();
+        return rs.getLong(1);
+    }
+
+    public List<Long> findCategoriesByID(long ad_id) throws SQLException {
+        List<Long> categories = new ArrayList<>();
+        String searchQuery = "SELECT * FROM ad_category where ad_id = ?";
+        PreparedStatement stmt = connection.prepareStatement(searchQuery);
+        stmt.setLong(1, ad_id);
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()) {
+            long hold = rs.getLong("ad_category");
+            categories.add(hold);
+        }
+        return categories;
+    }
+
+    public List<Ad> findAdsByCategories (List<Long> categories) throws SQLException {
+        String search = categories.toString();
+        search = search.replaceAll("\\[", "(").replaceAll("\\]",")");
+        System.out.println(search);
+        String searchQuery = "SELECT ads.id, ads.user_id, ads.title, ads.description FROM ads JOIN ad_category ON ads.id = ad_category.ad_id WHERE ad_category.cat_id in "+search+" GROUP BY ad_category.ad_id";
+        Statement stmt = connection.prepareStatement(searchQuery);
+        System.out.println(stmt);
+        ResultSet rs = ((PreparedStatement) stmt).executeQuery();
+        return createAdsFromResults(rs);
+    }
+    public List<Ad> findAdsByCategory (long category) throws SQLException {
+        String searchQuery = "SELECT ads.id, ads.user_id, ads.title, ads.description FROM ads JOIN ad_category ON ads.id = ad_category.ad_id WHERE ad_category.cat_id = ? GROUP BY ad_category.ad_id";
+        PreparedStatement stmt = connection.prepareStatement(searchQuery);
+        stmt.setLong(1,category);
+        System.out.println(stmt);
+        ResultSet rs = stmt.executeQuery();
+        return createAdsFromResults(rs);
+    }
+
+    public void deleteCategories(long ad_id) {
+        try {
+            System.out.println("deleteCategories");
+            String deleteQuery = "DELETE FROM ad_category WHERE ad_id = ?";
+            PreparedStatement stmt = null;
+            stmt = connection.prepareStatement(deleteQuery);
+            stmt.setLong(1, ad_id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
+
