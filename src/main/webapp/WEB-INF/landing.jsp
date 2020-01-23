@@ -28,7 +28,7 @@
     <div class="main-container">
         <div class="card-container">
     <c:forEach var="ad" items="${ads}">
-                <div class="card landingCard" style="width: 18rem; background-color: deeppink">
+                <div class="card landing-card" style="width: 18rem; background-color: deeppink">
                     <div class="card-body">
                         <h2 class="card-title lightgrey">${ad.title}</h2>
                         <h3 class="card-text lightgrey">
@@ -40,7 +40,7 @@
                     <form action="/singleAd">
                         <input name="adId" value="${ad.id}"type="hidden">
                         <input name="ad" value="${ad}"type="hidden">
-                        <button class="btn landingViewBtn" type="submit" style="margin-top:15px;">View this ad</button>
+                        <button class="btn landingViewBtn rock" type="submit" style="margin-top:15px;">View</button>
                     </form>
             </div>
     </c:forEach>
