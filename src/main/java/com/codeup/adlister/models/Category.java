@@ -17,8 +17,18 @@ public class Category {
     public void setId(long id) {
         this.id = id;
     }
-
+    public Long getId(){
+        return id;
+    }
     public long getCategory (){
         return category;
+    }
+
+    public void setCategory(long category) {
+        this.category = category;
+    }
+
+    public void setAd_id(long ad_id) {
+        this.ad_id = ad_id;
     }
 }
