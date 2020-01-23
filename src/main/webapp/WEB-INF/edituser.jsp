@@ -9,7 +9,7 @@
 <html>
 <head>
     <jsp:include page="partials/head.jsp">
-        <jsp:param name="title" value="Edit User" />
+        <jsp:param name="title" value="Edit User"/>
     </jsp:include>
 
 </head>
@@ -31,17 +31,19 @@
 <%--    <button type="submit">Edit User</button>--%>
 <%--</form>--%>
 
-<jsp:include page="partials/navbar.jsp" />
+<jsp:include page="partials/navbar.jsp"/>
 <div class="container edit-profile-container">
     <h1 class="rock grey">Please EDIT in your information.</h1>
     <form action="/edituser" method="post">
         <div class="form-group">
             <label class="edit-label grey" for="editUserName">Edit User Name</label>
-            <input type="text" name="editUserName" id="editUserName" class="form-control edit-input" value="${sessionScope.user.username}" required>
+            <input type="text" name="editUserName" id="editUserName" class="form-control edit-input"
+                   value="${sessionScope.user.username}" required>
         </div>
         <div class="form-group">
             <label class="edit-label grey" for="editEmail">Edit Email</label>
-            <input type="text" name="editEmail" id="editEmail" class="form-control edit-input" value="${sessionScope.user.email}" required>
+            <input type="text" name="editEmail" id="editEmail" class="form-control edit-input"
+                   value="${sessionScope.user.email}" required>
         </div>
         <div class="form-group">
             <label class="edit-label grey" for="editPassword">Edit Password</label>
@@ -49,12 +51,13 @@
         </div>
         <div class="form-group">
             <label class="edit-label grey" for="confirmPassword">Confirm Password</label>
-            <input id="confirmPassword" name="confirmPassword" class="form-control edit-input" type="password"required>
+            <input id="confirmPassword" name="confirmPassword" class="form-control edit-input" type="password" required>
         </div>
         <input id="edit-button" type="submit" class="btn btn-block rock">
         <input type="hidden" name="userId" value="${sessionScope.user.id}">
     </form>
 
 </div>
+<jsp:include page="partials/footer.jsp"></jsp:include>
 </body>
 </html>

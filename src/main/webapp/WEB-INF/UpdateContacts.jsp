@@ -26,6 +26,6 @@
     <input type="hidden" name="id" value="${updateContact.id}">
     <button type="submit">Edit Contact</button>
 </form>
-
+<jsp:include page="partials/footer.jsp"></jsp:include>
 </body>
 </html>

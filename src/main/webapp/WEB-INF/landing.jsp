@@ -24,7 +24,7 @@
         <p class="lead white rock">Rad Ads for a totally tubular life!</p>
     </div>
 </div>
-<div class="main-container container">
+<div class="main-container welcome-container container">
     <h1 class="grey rock " style="margin-top: 2%; margin-bottom: 5%">Check out some of our Rad Ads!</h1>
     <div class="card-container">
         <c:forEach var="ad" items="${ads}">
@@ -48,9 +48,7 @@
     </div>
 </div>
 
-
-<body>
-
+<jsp:include page="partials/footer.jsp"></jsp:include>
 </body>
 </html>
 

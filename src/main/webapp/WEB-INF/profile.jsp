@@ -11,7 +11,7 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 <div class="container welcome-container">
     <h1 class="rock grey">Welcome, ${sessionScope.user.username}!</h1>
-    <div class="profile-btn-edit-container" >
+    <div class="profile-btn-edit-container">
         <form action="/edituser">
             <button class="profile-edit-btn rock" type="submit">Edit Profile</button>
         </form>
@@ -55,5 +55,6 @@
         </c:forEach>
     </div>
 </div>
+<jsp:include page="partials/footer.jsp"></jsp:include>
 </body>
 </html>
