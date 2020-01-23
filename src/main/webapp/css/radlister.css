@@ -220,21 +220,21 @@ body {
   color: lightgrey;
 }
 
-.login-page, .register-page {
+.login-page, .register-page, .edit-profile-container, .welcome-container {
  margin-top: 6%;
 
 }
-.login-label, .register-label {
+.login-label, .register-label, .edit-label, .create-label {
   margin-top: .25em;
   font-size: 1.5em;
 }
-.login-input, .register-input {
+.login-input, .register-input, .edit-input, .create-input {
   padding: 4px;
   line-height: 20px;
   border: 2px solid #ff1493;
   border-radius: 5px;
 }
-#login-button, #register-button {
+#login-button, #register-button, #edit-button, #create-button {
   background-color: #5d5d5d!important;
   color: white!important;
   border: 2px solid #FDFF02;
@@ -248,4 +248,14 @@ body {
   padding-top: 1em;
   margin-bottom: 1em;
 }
+
+#delete-ad-header{
+  margin-bottom: 1em;
+}
+
+.btn-space-fix {
+  margin-left: 0%!important;
+}
+
+
 
