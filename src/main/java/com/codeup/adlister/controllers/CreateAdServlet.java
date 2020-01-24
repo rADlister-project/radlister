@@ -52,6 +52,8 @@ public class CreateAdServlet extends HttpServlet {
             long result7 = CategoryInsertHelper(adIndex, checkbox7, 7);
         } catch (SQLException e) {
             e.printStackTrace();
+            response.sendRedirect("/error");
+
         }
             response.sendRedirect("/ads");
     }

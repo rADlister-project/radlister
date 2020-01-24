@@ -40,7 +40,7 @@ public class EditUserServlet extends HttpServlet {
                 response.sendRedirect("/profile");
             } catch (SQLException e) {
                 e.printStackTrace();
-                response.sendRedirect("/edituser");
+                response.sendRedirect("/error");
             }
 
         } else {
