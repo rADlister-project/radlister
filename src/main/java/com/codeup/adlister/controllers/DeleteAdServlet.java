@@ -43,7 +43,7 @@ public class DeleteAdServlet extends HttpServlet {
         } catch (IOException e) {
             e.printStackTrace();
 //            error page if unable to delete
-            response.sendRedirect("/home");
+            response.sendRedirect("/error");
 
         }
 
