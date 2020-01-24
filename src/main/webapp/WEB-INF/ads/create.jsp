@@ -42,6 +42,6 @@
             <input id="create-button" type="submit" class="btn btn-block rock">
         </form>
     </div>
-
+<jsp:include page="../partials/footer.jsp"></jsp:include>
 </body>
 </html>
