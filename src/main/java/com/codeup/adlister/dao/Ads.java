@@ -15,8 +15,8 @@ public interface Ads {
     // insert a new ad and return the new ad's id
     Long insert(Ad ad);
     // search ads by user input
-
     List<Ad>search(String userInput) throws SQLException;
+
     //    get a list of ads from a particular user
     List<Ad> allFromUser(Long userID);
 
