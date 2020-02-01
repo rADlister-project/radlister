@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
@@ -16,6 +17,7 @@ public class RegisterServlet extends HttpServlet {
         request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
         // TODO: show the registration form
     }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String username = request.getParameter("username");
         String email = request.getParameter("email");
@@ -26,7 +28,7 @@ public class RegisterServlet extends HttpServlet {
         boolean inputHasErrors = username.isEmpty()
                 || email.isEmpty()
                 || password.isEmpty()
-                || (! password.equals(passwordConfirmation));
+                || (!password.equals(passwordConfirmation));
 
         if (inputHasErrors) {
             response.sendRedirect("/register");
@@ -35,9 +37,13 @@ public class RegisterServlet extends HttpServlet {
 
         // create and save a new user
         User user = new User(username, email, password);
-
-        DaoFactory.getUsersDao().insert(user);
-        response.sendRedirect("/login");
+        try {
+            DaoFactory.getUsersDao().insert(user);
+            response.sendRedirect("/login");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            response.sendRedirect("/error");
+        }
     }
 }
 

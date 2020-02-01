@@ -131,14 +131,14 @@ body {
   background-color: deeppink;
   margin-top: 6%;
   height: 100% !important;
-  width: 50%!important;
+  width: 80%!important;
   border: 10px solid #FDFF02;
   border-radius: 5px;
   text-align: center;
 }
 
 #single-ad-title{
-  font-size: 6em;
+  font-size: 5em;
   margin-top: 1em !important;
   margin-bottom: .5em !important;
 }
@@ -152,11 +152,11 @@ body {
 }
 #single-ad-price{
   margin-top: .5em !important;
-  font-size: 3.5em;
+  font-size: 3em;
 }
 
 #single-ad-description{
-  font-size: 2.5em;
+  font-size: 2em;
 }
 
 
@@ -385,4 +385,6 @@ a:active {
 #error-head {
   margin-top: .5em!important;
 }
+
+
 

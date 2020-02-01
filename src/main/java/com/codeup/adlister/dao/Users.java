@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface Users {
     User findByUsername(String username);
-    Long insert(User user);
+    Long insert(User user) throws SQLException;
 //    User editUser(User user);
     User getUserById(long id);
     User updateUser(User user) throws SQLException;
